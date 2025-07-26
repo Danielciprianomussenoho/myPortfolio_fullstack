@@ -19,7 +19,7 @@ export default function EducationSection() {
   useEffect(() => {
     const fetchEducation = async () => {
       try {
-        const res = await axios.get("https://myportfolioapi.up.railway.app/api/education");
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/education`);
         setEducationData(res.data);
       } catch (err) {
         console.error("Falha ao buscar dados de educação:", err);
@@ -43,14 +43,14 @@ export default function EducationSection() {
         className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 p-0.5 shadow-xl"
       >
         <div className="relative bg-gray-900 rounded-xl p-8">
-          <motion.h2
+          <motion.h1
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.5 }}
-            className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 mb-8"
+            className="text-4xl md:text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500"
           >
             Minha Educação
-          </motion.h2>
+          </motion.h1>
 
           <div className="space-y-4">
             <motion.div

@@ -32,7 +32,7 @@ const ExperienceSection = () => {
         const savedToken = localStorage.getItem('token')
         if (savedToken) setToken(savedToken)
         
-        const response = await axios.get('https://myportfolioapi.up.railway.app/api/experience')
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/experience`)
         setExperiences(response.data)
       } catch (err) {
         setError('Failed to fetch experiences')
@@ -60,7 +60,7 @@ const ExperienceSection = () => {
     try {
       if (editingId) {
         // Update existing experience
-        await axios.put(`https://myportfolioapi.up.railway.app/api/experience/update/${editingId}`, formData, {
+        await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/experience/update/${editingId}`, formData, {
           headers: { Authorization: `Bearer ${token}` }
         })
         setExperiences(prev => 
@@ -70,7 +70,7 @@ const ExperienceSection = () => {
         )
       } else {
         // Add new experience
-        const response = await axios.post('https://myportfolioapi.up.railway.app/api/experience/add', formData, {
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/experience/add`, formData, {
           headers: { Authorization: `Bearer ${token}` }
         })
         setExperiences(prev => [...prev, response.data])
@@ -98,7 +98,7 @@ const ExperienceSection = () => {
     if (!window.confirm('Are you sure you want to delete this experience?')) return
 
     try {
-      await axios.delete(`https://myportfolioapi.up.railway.app/api/experience/delete/${id}`, {
+      await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/api/experience/delete/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setExperiences(prev => prev.filter(exp => exp._id !== id))

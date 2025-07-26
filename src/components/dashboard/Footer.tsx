@@ -78,7 +78,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants} className="flex flex-col">
-            <h3 className="text-lg font-semibold text-white mb-4">Links Rápidos</h3>
+            <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 mb-4">Links Rápidos</h3>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <motion.li 
@@ -99,7 +99,7 @@ export default function Footer() {
 
           {/* Social Links */}
           <motion.div variants={itemVariants} className="flex flex-col">
-            <h3 className="text-lg font-semibold text-white mb-4">Redes Sociais</h3>
+            <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 mb-4">Redes Sociais</h3>
             <div className="flex space-x-4">
               {socialLinks.map((link, index) => (
                 <motion.a

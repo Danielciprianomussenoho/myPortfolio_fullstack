@@ -18,7 +18,7 @@ const ExperienceSection = () => {
   useEffect(() => {
     const fetchExperiences = async () => {
       try {
-        const response = await axios.get("https://myportfolioapi.up.railway.app/api/experience");
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/experience`);
         setExperiences(response.data);
       } catch (err) {
         console.error("Falha ao buscar experiências", err);
@@ -38,12 +38,12 @@ const ExperienceSection = () => {
         initial={{ y: -20 }}
         animate={{ y: 0 }}
         transition={{ delay: 0.2 }}
-        className="text-4xl md:text-5xl font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500"
+        className="text-4xl md:text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500"
       >
         Minhas Experiências
       </motion.h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
         {experiences.map((exp, index) => (
           <motion.article
             key={exp._id || index}

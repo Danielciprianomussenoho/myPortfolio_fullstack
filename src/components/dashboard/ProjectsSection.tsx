@@ -29,7 +29,7 @@ const ProjectsSection = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("https://myportfolioapi.up.railway.app/api/projects");
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/projects`);
         if (res.data) {
           setProjects({
             sectionName: res.data.sectionName || "Projetos",
@@ -101,7 +101,7 @@ const ProjectsSection = () => {
 
     try {
       await axios.delete(
-        `https://myportfolioapi.up.railway.app/api/projects/delete/${cardToDelete._id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/projects/delete/${cardToDelete._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -122,7 +122,7 @@ const ProjectsSection = () => {
     try {
       if (card._id) {
         await axios.put(
-          `https://myportfolioapi.up.railway.app/api/projects/update/${card._id}`,
+          `${process.env.NEXT_PUBLIC_API_URL}/api/projects/update/${card._id}`,
           card,
           {
             headers: {
@@ -132,7 +132,7 @@ const ProjectsSection = () => {
         );
       } else {
         const res = await axios.post(
-          "https://myportfolioapi.up.railway.app/api/projects/add",
+          `${process.env.NEXT_PUBLIC_API_URL}/api/projects/add`,
           card,
           {
             headers: {
@@ -157,7 +157,7 @@ const ProjectsSection = () => {
     if (!projects._id) {
       // Handle case where section doesn't exist yet
       const res = await axios.post(
-        "https://myportfolioapi.up.railway.app/api/projects/create",
+        `${process.env.NEXT_PUBLIC_API_URL}/api/projects/create`,
         { sectionName: projects.sectionName, cards: [] },
         {
           headers: {
@@ -175,7 +175,7 @@ const ProjectsSection = () => {
     }
 
     await axios.put(
-      `https://myportfolioapi.up.railway.app/api/projects/update/${projects._id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/projects/update/${projects._id}`,
       { sectionName: projects.sectionName },
       {
         headers: {

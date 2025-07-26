@@ -21,7 +21,7 @@ export default function EducationSection() {
   useEffect(() => {
     const fetchEducation = async () => {
       try {
-        const res = await axios.get("https://myportfolioapi.up.railway.app/api/education");
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/education`);
         setEducationData(res.data);
       } catch (err) {
         console.error("Failed to fetch education data:", err);
@@ -46,7 +46,7 @@ export default function EducationSection() {
     setMessage("");
 
     try {
-      await axios.put("https://myportfolioapi.up.railway.app/api/education", educationData, {
+      await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/education`, educationData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

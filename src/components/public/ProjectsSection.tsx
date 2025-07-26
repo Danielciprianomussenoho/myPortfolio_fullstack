@@ -29,7 +29,7 @@ const ProjectsSection = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("https://myportfolioapi.up.railway.app/api/projects");
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/projects`);
         if (res.data) {
           setProjects({
             sectionName: res.data.sectionName || "Projetos",
@@ -56,7 +56,8 @@ const ProjectsSection = () => {
         initial={{ y: -20 }}
         animate={{ y: 0 }}
         transition={{ delay: 0.2 }}
-        className="text-4xl md:text-5xl font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500"
+        // className="text-4xl md:text-5xl font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500"
+        className="text-4xl md:text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500"
       >
         {projects.sectionName}
       </motion.h1>

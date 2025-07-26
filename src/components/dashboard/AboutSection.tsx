@@ -24,7 +24,7 @@ export default function AboutSection() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("https://myportfolioapi.up.railway.app/api/about");
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/about`);
         setAboutData(res.data);
       } catch (err) {
         console.error("Erro ao buscar dados do about:", err);
@@ -53,7 +53,7 @@ export default function AboutSection() {
         description: "Descrição da tecnologia",
       };
       const res = await axios.post(
-        "https://myportfolioapi.up.railway.app/api/about/add-tech",
+        `${process.env.NEXT_PUBLIC_API_URL}/api/about/add-tech`,
         newTech,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -71,7 +71,7 @@ export default function AboutSection() {
 
     try {
       await axios.delete(
-        `https://myportfolioapi.up.railway.app/api/about/delete-tech/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/about/delete-tech/${id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setAboutData((prev) => ({
@@ -87,7 +87,7 @@ export default function AboutSection() {
     e.preventDefault();
     setMensagem("");
     try {
-      await axios.put("https://myportfolioapi.up.railway.app/api/about", aboutData, {
+      await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/about`, aboutData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMensagem("Seção 'About' atualizada com sucesso!");

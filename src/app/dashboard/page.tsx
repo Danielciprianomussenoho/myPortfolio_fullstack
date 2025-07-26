@@ -62,7 +62,7 @@ export default function DashboardPage() {
 
   return (
     <main className="p-6 space-y-10">
-      <h1 className="text-3xl font-bold mb-6 text-center">Painel de Edição do Portfólio</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center mt-20">Painel de Edição do Portfólio</h1>
 
       <section className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
         <HomeSection />

@@ -22,7 +22,7 @@ export default function HomeSection() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("https://myportfolioapi.up.railway.app/api/home");
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/home`);
         setHomeData(res.data);
       } catch (err) {
         console.error("Erro ao buscar dados da home:", err);
@@ -58,7 +58,7 @@ export default function HomeSection() {
     setMensagem("");
 
     try {
-      await axios.put("https://myportfolioapi.up.railway.app/api/home", homeData, {
+      await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/home`, homeData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

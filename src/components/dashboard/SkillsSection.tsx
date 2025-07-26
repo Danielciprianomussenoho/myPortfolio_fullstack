@@ -15,7 +15,7 @@ export default function SkillsSection() {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const res = await axios.get("https://myportfolioapi.up.railway.app/api/skills");
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/skills`);
         setSkillsData(res.data);
       } catch (error) {
         console.error("Failed to fetch skills data:", error);
@@ -55,7 +55,7 @@ export default function SkillsSection() {
     setMessage("");
 
     try {
-      await axios.put("https://myportfolioapi.up.railway.app/api/skills", skillsData, {
+      await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/skills`, skillsData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

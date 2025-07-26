@@ -4,6 +4,7 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+
 export default function SkillsSection() {
   const [skillsData, setSkillsData] = useState({
     title: "",
@@ -19,7 +20,7 @@ export default function SkillsSection() {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const res = await axios.get("https://myportfolioapi.up.railway.app/api/skills");
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/skills`);
         setSkillsData(res.data);
       } catch (error) {
         console.error("Failed to fetch skills data:", error);
@@ -56,7 +57,8 @@ export default function SkillsSection() {
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           variants={item}
-          className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500"
+          // className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500"
+          className="text-4xl md:text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500"
         >
           {skillsData.title}
         </motion.h1>
