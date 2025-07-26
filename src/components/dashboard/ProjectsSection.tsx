@@ -175,7 +175,7 @@ const ProjectsSection = () => {
     }
 
     await axios.put(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/projects/update/${projects._id}`,
+      `https://myportfolioapi.up.railway.app/api/projects/update/${projects._id}`,
       { sectionName: projects.sectionName },
       {
         headers: {
