@@ -101,7 +101,7 @@ const ProjectsSection = () => {
 
     try {
       await axios.delete(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/projects/delete/${cardToDelete._id}`,
+        `https://myportfolioapi.up.railway.app/api/projects/delete/${cardToDelete._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -122,7 +122,7 @@ const ProjectsSection = () => {
     try {
       if (card._id) {
         await axios.put(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/projects/update/${card._id}`,
+          `https://myportfolioapi.up.railway.app/api/projects/update/${card._id}`,
           card,
           {
             headers: {
@@ -132,7 +132,7 @@ const ProjectsSection = () => {
         );
       } else {
         const res = await axios.post(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/projects/add`,
+          "https://myportfolioapi.up.railway.app/api/projects/add",
           card,
           {
             headers: {
@@ -157,7 +157,7 @@ const ProjectsSection = () => {
     if (!projects._id) {
       // Handle case where section doesn't exist yet
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/projects/create`,
+        "https://myportfolioapi.up.railway.app/api/projects/create",
         { sectionName: projects.sectionName, cards: [] },
         {
           headers: {
