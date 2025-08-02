@@ -136,7 +136,8 @@ export default function HomeSection() {
             transition={{ delay: 0.6 }}
           >
             <Link
-              href={homeData.curriculum || "/"}
+              // href={homeData.curriculum || "/perfil.jpg"}
+              href={"/perfil.jpg"}
               download
               className="mt-6 w-fit bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 flex items-center gap-2"
             >

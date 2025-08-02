@@ -54,7 +54,8 @@ export default function AboutSection() {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500"
+          // className="text-4xl md:text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500"
+          className="bg-gray-800"
         >
           {aboutData.sectionName}
         </motion.h1>
