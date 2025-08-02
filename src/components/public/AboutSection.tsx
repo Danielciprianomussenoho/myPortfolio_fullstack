@@ -41,7 +41,7 @@ export default function AboutSection() {
   );
 
   return (
-    <motion.section 
+    <motion.section
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -54,8 +54,7 @@ export default function AboutSection() {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
           viewport={{ once: true }}
-          // className="text-4xl md:text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500"
-          className="bg-gray-800"
+          className="text-4xl md:text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500"
         >
           {aboutData.sectionName}
         </motion.h1>
@@ -69,7 +68,7 @@ export default function AboutSection() {
             viewport={{ once: true }}
             className="w-full lg:w-2/5 relative flex items-center"
           >
-            <div className="relative w-full h-full min-h-[500px] rounded-xl border-4 border-emerald-500/20 shadow-xl overflow-hidden">
+            <div className="relative w-full h-full min-h-[500px] rounded-xl border-4 border-emerald-500/20 shadow-xl overflow-hidden md:block hidden">
               <Image
                 src={"/perfil.jpg"}
                 alt="Developer"
