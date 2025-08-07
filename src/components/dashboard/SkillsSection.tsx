@@ -91,8 +91,7 @@ export default function SkillsSection() {
               value={skillsData.title}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-            />
+              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"/>
           </div>
 
           <div>
@@ -102,8 +101,7 @@ export default function SkillsSection() {
               name="subtitle"
               value={skillsData.subtitle}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-            />
+              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"/>
           </div>
 
           <div>
@@ -134,7 +132,7 @@ export default function SkillsSection() {
                       type="text"
                       value={skill}
                       onChange={(e) => handleSkillChange(index, e.target.value)}
-                      className="flex-1 bg-transparent p-2 focus:outline-none dark:text-white"
+                       className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
                       placeholder="Enter skill name"
                     />
                   </div>

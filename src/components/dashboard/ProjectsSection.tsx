@@ -201,7 +201,8 @@ const ProjectsSection = () => {
           onChange={(e) =>
             setProjects({ ...projects, sectionName: e.target.value })
           }
-          className="w-full p-2 border border-gray-300 rounded mr-2"
+          className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+             
         />
         <button
           onClick={saveSection}
@@ -223,7 +224,8 @@ const ProjectsSection = () => {
                 type="text"
                 value={card.image}
                 onChange={(e) => handleCardChange(index, "image", e.target.value)}
-                className="w-full p-2 border rounded"
+                className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+             
               />
             </div>
             <div>
@@ -232,7 +234,7 @@ const ProjectsSection = () => {
                 type="text"
                 value={card.name}
                 onChange={(e) => handleCardChange(index, "name", e.target.value)}
-                className="w-full p-2 border rounded"
+               className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
               />
             </div>
           </div>
@@ -244,7 +246,7 @@ const ProjectsSection = () => {
               onChange={(e) =>
                 handleCardChange(index, "description", e.target.value)
               }
-              className="w-full p-2 border rounded"
+              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
               rows={3}
             />
           </div>
@@ -259,7 +261,7 @@ const ProjectsSection = () => {
                 onChange={(e) =>
                   handleCardChange(index, "tecnologies", e.target.value)
                 }
-                className="w-full p-2 border rounded"
+                className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
               />
             </div>
             <div>
@@ -270,7 +272,7 @@ const ProjectsSection = () => {
                 onChange={(e) =>
                   handleCardChange(index, "githubLink", e.target.value)
                 }
-                className="w-full p-2 border rounded"
+                className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
               />
             </div>
             <div>
@@ -281,7 +283,7 @@ const ProjectsSection = () => {
                 onChange={(e) =>
                   handleCardChange(index, "liveProjectLink", e.target.value)
                 }
-                className="w-full p-2 border rounded"
+                className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
               />
             </div>
           </div>
@@ -289,7 +291,7 @@ const ProjectsSection = () => {
           <div className="flex justify-between items-center">
             <button
               onClick={() => deleteCard(index)}
-              className="text-red-600 hover:text-red-800 text-sm"
+              className="text-white hover:bg-red-800 text-sm px-4 py-2 rounded bg-red-600"
             >
               Delete Project
             </button>

@@ -20,7 +20,7 @@ export default function LoginPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
-
+        console.log("enviando dados")
       const data = await res.json(); // Move this outside the if statement
 
       if (!res.ok) {
@@ -61,8 +61,8 @@ export default function LoginPage() {
           <input
             type="email"
             id="email"
-            className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-            value={email}
+             className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+              value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
@@ -75,8 +75,7 @@ export default function LoginPage() {
           <input
             type="password"
             id="password"
-            className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-            value={password}
+             className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />

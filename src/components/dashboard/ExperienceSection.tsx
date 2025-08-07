@@ -142,7 +142,7 @@ const ExperienceSection = () => {
                 value={formData.position}
                 onChange={handleInputChange}
                 required
-                className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+                className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
               />
             </div>
             <div>
@@ -153,8 +153,8 @@ const ExperienceSection = () => {
                 value={formData.company}
                 onChange={handleInputChange}
                 required
-                className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-              />
+                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+                 />
             </div>
           </div>
 
@@ -167,8 +167,8 @@ const ExperienceSection = () => {
                 value={formData.duration}
                 onChange={handleInputChange}
                 required
-                className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-              />
+                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+                 />
             </div>
             <div>
               <label className="block text-sm font-medium mb-2 text-gray-600 dark:text-gray-300">Location</label>
@@ -177,8 +177,8 @@ const ExperienceSection = () => {
                 name="location"
                 value={formData.location}
                 onChange={handleInputChange}
-                className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-              />
+                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+                 />
             </div>
           </div>
 
@@ -190,8 +190,8 @@ const ExperienceSection = () => {
               onChange={handleInputChange}
               required
               rows={4}
-              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-            />
+               className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+               />
           </div>
 
           <div className="flex justify-end space-x-4">

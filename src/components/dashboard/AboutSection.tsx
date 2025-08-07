@@ -117,8 +117,8 @@ export default function AboutSection() {
               value={aboutData.sectionName}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-            />
+              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+              />
           </div>
 
           <div>
@@ -129,8 +129,8 @@ export default function AboutSection() {
                 name="picture"
                 value={aboutData.picture}
                 onChange={handleChange}
-                className="flex-1 p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-              />
+                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+                 />
               {aboutData.picture && (
                 <a 
                   href={aboutData.picture} 
@@ -154,8 +154,8 @@ export default function AboutSection() {
               onChange={handleChange}
               required
               rows={6}
-              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-            />
+              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+              />
           </div>
 
           <div>
@@ -189,8 +189,7 @@ export default function AboutSection() {
                           placeholder="Título"
                           value={tech.title}
                           onChange={(e) => handleTechnologyChange(index, "title", e.target.value)}
-                          className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:text-white"
-                        />
+                           className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"/>
                       </div>
 
                       <div>
@@ -201,8 +200,8 @@ export default function AboutSection() {
                             placeholder="URL da Imagem"
                             value={tech.image}
                             onChange={(e) => handleTechnologyChange(index, "image", e.target.value)}
-                            className="flex-1 p-2 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:text-white"
-                          />
+                             className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+                             />
                           {tech.image && (
                             <a 
                               href={tech.image} 
@@ -225,8 +224,8 @@ export default function AboutSection() {
                           value={tech.description}
                           onChange={(e) => handleTechnologyChange(index, "description", e.target.value)}
                           rows={3}
-                          className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:text-white"
-                        />
+                          className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+                          />
                       </div>
 
                       {tech._id && (

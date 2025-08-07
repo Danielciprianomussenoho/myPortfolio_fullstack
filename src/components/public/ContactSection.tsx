@@ -65,7 +65,7 @@ const ContactSection = () => {
                   value={form.nome}
                   onChange={handleChange}
                   required
-                  className="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:text-white transition-all duration-200"
+                  className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
                   placeholder="Seu nome completo"
                 />
               </div>
@@ -80,8 +80,8 @@ const ContactSection = () => {
                   value={form.email}
                   onChange={handleChange}
                   required
-                  className="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:text-white transition-all duration-200"
-                  placeholder="seu@email.com"
+                   className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+                   placeholder="seu@email.com"
                 />
               </div>
 
@@ -95,8 +95,8 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:text-white transition-all duration-200"
-                  placeholder="Digite sua mensagem aqui..."
+                   className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+                   placeholder="Digite sua mensagem aqui..."
                 />
               </div>
 
@@ -153,7 +153,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-700 dark:text-gray-300">Telefone</h4>
-                  <p className="text-gray-600 dark:text-gray-400">+55 (XX) XXXX-XXXX</p>
+                  <p className="text-gray-600 dark:text-gray-400">(+351) 936394131</p>
                 </div>
               </div>
 
@@ -165,7 +165,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-700 dark:text-gray-300">Email</h4>
-                  <p className="text-gray-600 dark:text-gray-400">seu@email.com</p>
+                  <p className="text-gray-600 dark:text-gray-400">danielciprianomussenoho@gmail.com</p>
                 </div>
               </div>
 
@@ -178,7 +178,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-700 dark:text-gray-300">Endereço</h4>
-                  <p className="text-gray-600 dark:text-gray-400">Rua Exemplo, 123<br />Cidade - Estado<br />CEP: 00000-000</p>
+                  <p className="text-gray-600 dark:text-gray-400">Avenida Dom Dinis, 90<br />Lisboa - Odivelas<br />CEP:</p>
                 </div>
               </div>
 
