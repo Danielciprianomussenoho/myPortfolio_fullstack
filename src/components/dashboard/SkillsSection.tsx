@@ -16,7 +16,12 @@ export default function SkillsSection() {
     const fetchSkills = async () => {
       try {
         const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/skills`);
-        setSkillsData(res.data);
+        // Garantir que nenhum valor seja undefined ou null
+        setSkillsData({
+          title: res.data.title || "",
+          subtitle: res.data.subtitle || "",
+          skills: res.data.skills || [""],
+        });
       } catch (error) {
         console.error("Failed to fetch skills data:", error);
       } finally {
@@ -120,7 +125,7 @@ export default function SkillsSection() {
             </div>
 
             <div className="space-y-3">
-              {skillsData.skills.map((skill, index) => (
+              {skillsData.skills?.map((skill, index) => (
                 <div key={index} className="flex items-center gap-3">
                   <div className="flex-1 flex items-center gap-2 bg-gray-50 dark:bg-gray-700 p-2 rounded-lg border border-gray-200 dark:border-gray-600">
                     <div className="text-blue-500 dark:text-blue-400">
@@ -132,7 +137,7 @@ export default function SkillsSection() {
                       type="text"
                       value={skill}
                       onChange={(e) => handleSkillChange(index, e.target.value)}
-                       className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
                       placeholder="Enter skill name"
                     />
                   </div>

@@ -74,7 +74,7 @@ export default function SkillsSection() {
           variants={container}
           className="flex flex-wrap gap-4"
         >
-          {skillsData.skills.map((skill, index) => (
+          {skillsData?.skills?.map((skill, index) => (
             <motion.div
               key={index}
               variants={item}

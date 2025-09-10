@@ -36,12 +36,12 @@ export default function AboutSection() {
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setAboutData({ ...aboutData, [e.target.name]: e.target.value });
+    setAboutData({ ...aboutData, [e.target.name]: e.target.value || "" });
   };
 
   const handleTechnologyChange = (index: number, field: keyof Technology, value: string) => {
     const updated = [...aboutData.technologies];
-    updated[index] = { ...updated[index], [field]: value };
+    updated[index] = { ...updated[index], [field]: value || "" };
     setAboutData({ ...aboutData, technologies: updated });
   };
 
@@ -68,7 +68,6 @@ export default function AboutSection() {
 
   const handleDeleteTechnology = async (id?: string) => {
     if (!id) return;
-
     try {
       await axios.delete(
         `${process.env.NEXT_PUBLIC_API_URL}/api/about/delete-tech/${id}`,
@@ -97,11 +96,12 @@ export default function AboutSection() {
     }
   };
 
-  if (loading) return (
-    <div className="flex justify-center items-center h-64">
-      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-    </div>
-  );
+  if (loading)
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
@@ -114,11 +114,11 @@ export default function AboutSection() {
             <input
               type="text"
               name="sectionName"
-              value={aboutData.sectionName}
+              value={aboutData.sectionName || ""}
               onChange={handleChange}
               required
               className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
-              />
+            />
           </div>
 
           <div>
@@ -127,14 +127,14 @@ export default function AboutSection() {
               <input
                 type="text"
                 name="picture"
-                value={aboutData.picture}
+                value={aboutData.picture || ""}
                 onChange={handleChange}
-                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
-                 />
+                className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+              />
               {aboutData.picture && (
-                <a 
-                  href={aboutData.picture} 
-                  target="_blank" 
+                <a
+                  href={aboutData.picture}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 text-blue-600 hover:text-blue-800 dark:hover:text-blue-400"
                 >
@@ -150,12 +150,12 @@ export default function AboutSection() {
             <label className="block text-sm font-medium mb-2 text-gray-600 dark:text-gray-300">Descrição*</label>
             <textarea
               name="description"
-              value={aboutData.description}
+              value={aboutData.description || ""}
               onChange={handleChange}
               required
               rows={6}
               className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
-              />
+            />
           </div>
 
           <div>
@@ -173,13 +173,13 @@ export default function AboutSection() {
               </button>
             </div>
 
-            {aboutData.technologies.length === 0 ? (
+            {aboutData.technologies?.length === 0 ? (
               <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg border border-gray-200 dark:border-gray-600 text-center text-gray-500 dark:text-gray-400">
                 Nenhuma tecnologia adicionada ainda
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {aboutData.technologies.map((tech, index) => (
+                {aboutData.technologies?.map((tech, index) => (
                   <div key={tech._id || index} className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg border border-gray-200 dark:border-gray-600">
                     <div className="space-y-3">
                       <div>
@@ -187,9 +187,10 @@ export default function AboutSection() {
                         <input
                           type="text"
                           placeholder="Título"
-                          value={tech.title}
+                          value={tech.title || ""}
                           onChange={(e) => handleTechnologyChange(index, "title", e.target.value)}
-                           className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"/>
+                          className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+                        />
                       </div>
 
                       <div>
@@ -198,14 +199,14 @@ export default function AboutSection() {
                           <input
                             type="text"
                             placeholder="URL da Imagem"
-                            value={tech.image}
+                            value={tech.image || ""}
                             onChange={(e) => handleTechnologyChange(index, "image", e.target.value)}
-                             className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
-                             />
+                            className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+                          />
                           {tech.image && (
-                            <a 
-                              href={tech.image} 
-                              target="_blank" 
+                            <a
+                              href={tech.image}
+                              target="_blank"
                               rel="noopener noreferrer"
                               className="p-1 text-blue-600 hover:text-blue-800 dark:hover:text-blue-400"
                             >
@@ -221,11 +222,11 @@ export default function AboutSection() {
                         <label className="block text-xs font-medium mb-1 text-gray-500 dark:text-gray-400">Descrição</label>
                         <textarea
                           placeholder="Descrição"
-                          value={tech.description}
+                          value={tech.description || ""}
                           onChange={(e) => handleTechnologyChange(index, "description", e.target.value)}
                           rows={3}
                           className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
-                          />
+                        />
                       </div>
 
                       {tech._id && (
@@ -263,7 +264,11 @@ export default function AboutSection() {
         </div>
 
         {mensagem && (
-          <div className={`mt-4 p-3 rounded-lg ${mensagem.includes("Erro") ? "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400" : "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"}`}>
+          <div className={`mt-4 p-3 rounded-lg ${
+            mensagem.includes("Erro")
+              ? "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
+              : "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
+          }`}>
             {mensagem}
           </div>
         )}

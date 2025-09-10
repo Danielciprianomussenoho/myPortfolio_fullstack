@@ -22,7 +22,12 @@ export default function EducationSection() {
     const fetchEducation = async () => {
       try {
         const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/education`);
-        setEducationData(res.data);
+        // Garantir que nenhum valor seja undefined ou null
+        setEducationData({
+          degree: res.data.degree || "",
+          year: res.data.year || "",
+          collegeName: res.data.collegeName || ""
+        });
       } catch (err) {
         console.error("Failed to fetch education data:", err);
       } finally {
@@ -78,8 +83,8 @@ export default function EducationSection() {
               value={educationData.degree}
               onChange={handleChange}
               required
-               className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
-                />
+              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+            />
           </div>
 
           <div>
@@ -90,8 +95,8 @@ export default function EducationSection() {
               value={educationData.year}
               onChange={handleChange}
               required
-               className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
-                />
+              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
+            />
           </div>
 
           <div>
@@ -103,7 +108,7 @@ export default function EducationSection() {
               onChange={handleChange}
               required
               className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
-               />
+            />
           </div>
         </div>
 

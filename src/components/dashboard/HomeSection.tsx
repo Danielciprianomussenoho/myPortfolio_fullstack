@@ -185,7 +185,7 @@ export default function HomeSection() {
                 <input
                   type="text"
                   name="links.github"
-                  value={homeData.links.github}
+                  value={homeData.links?.github}
                   onChange={handleChange}
                    className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
                 />
@@ -203,7 +203,7 @@ export default function HomeSection() {
                 <input
                   type="text"
                   name="links.linkedin"
-                  value={homeData.links.linkedin}
+                  value={homeData.links?.linkedin}
                   onChange={handleChange}
                    className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
                 />
@@ -221,7 +221,7 @@ export default function HomeSection() {
                 <input
                   type="text"
                   name="links.instagram"
-                  value={homeData.links.instagram}
+                  value={homeData.links?.instagram}
                   onChange={handleChange}
                    className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 dark:bg-gray-700 dark:text-white"
                 />
