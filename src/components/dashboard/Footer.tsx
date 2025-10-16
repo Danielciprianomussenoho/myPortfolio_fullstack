@@ -10,22 +10,22 @@ export default function Footer() {
     { 
       name: 'GitHub', 
       icon: <FaGithub />, 
-      url: 'https://github.com/seuuser' 
+      url: 'https://github.com/Danielciprianomussenoho' 
     },
     { 
       name: 'LinkedIn', 
       icon: <FaLinkedin />, 
-      url: 'https://linkedin.com/in/seuuser' 
+      url: 'https://www.linkedin.com/in/danielciprianomussenoho' 
     },
     { 
       name: 'Instagram', 
       icon: <FaInstagram />, 
-      url: 'https://instagram.com/seuuser' 
+      url: 'https://www.instagram.com/dado_cipriano_junior' 
     },
     { 
       name: 'Email', 
       icon: <FaEnvelope />, 
-      url: 'mailto:seu@email.com' 
+      url: 'danielciprianomussenoho@gmail.com' 
     }
   ];
 

@@ -1,5 +1,4 @@
 import Head from "next/head";
-
 import InicioPage from "@/components/public/HomeSection";
 import AboutPage from "@/components/public/AboutSection";
 import SkillsPage from "@/components/public/SkillsSection";
