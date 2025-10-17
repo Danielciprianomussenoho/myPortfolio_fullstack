@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* CONFIGURAÇÃO DO DARK MODE - ESSENCIAL */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --primary: #3B82F6;
   --primary-light: #93C5FD;

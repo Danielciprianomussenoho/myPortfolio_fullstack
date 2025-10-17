@@ -4,6 +4,7 @@ import Footer from "@/components/dashboard/Footer";
 import Navbar from "@/components/dashboard/NavbarSection";
 import { ReactNode } from "react";
 import Head from "next/head";
+import { ThemeProvider } from '@/contexts/ThemeContext';
 
 export const metadata: Metadata = {
   title: "Meu Portfolio",
@@ -16,8 +17,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" >
-  
+    <html lang="pt-BR">
       <Head>
         {/* Script que aplica dark mode antes do carregamento da interface */}
         <script
@@ -39,9 +39,12 @@ export default function RootLayout({
         />
       </Head>
       <body className="bg-white flex flex-col min-h-screen dark:bg-gray-900 antialiased text-black dark:text-white">
-        <Navbar />
-        <main className="min-h-screen w-full px-4 mt-6">{children}</main>
-        <Footer />
+        {/* ENVOLVA TODO O CONTEÚDO COM ThemeProvider */}
+        <ThemeProvider>
+          <Navbar />
+          <main className="min-h-screen w-full px-4 mt-6">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

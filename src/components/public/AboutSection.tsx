@@ -97,7 +97,7 @@ export default function AboutSection() {
               transition={{ delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line break-words overflow-wrap-break-word word-break-break-all max-w-full">
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line break-words max-w-full">
                 {aboutData.description}
               </p>
             </motion.div>
@@ -118,7 +118,7 @@ export default function AboutSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 + index * 0.1 }}
                     whileHover={{ y: -5 }}
-                    className="group relative overflow-hidden rounded-xl bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 p-6 text-center"
+                    className="group relative overflow-hidden rounded-xl bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 p-6 text-center hover:shadow-xl transition-all duration-300"
                   >
                     <div className="h-16 w-16 mx-auto mb-4 flex items-center justify-center">
                       {/* ÍCONES FIXOS - MUDANÇA APLICADA AQUI */}
@@ -132,6 +132,9 @@ export default function AboutSection() {
                     <p className="text-sm text-gray-600 dark:text-gray-300">
                       {tech.description} {/* Descrição dinâmica mantida */}
                     </p>
+                    
+                    {/* Efeito de brilho no hover */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
                   </motion.div>
                 ))}
               </div>
