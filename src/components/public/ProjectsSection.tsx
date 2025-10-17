@@ -45,6 +45,17 @@ const ProjectsSection = () => {
     fetchData();
   }, []);
 
+  // Função para validar URL da imagem
+  const isValidImageUrl = (url: string) => {
+    if (!url) return false;
+    try {
+      const parsedUrl = new URL(url);
+      return parsedUrl.protocol === 'http:' || parsedUrl.protocol === 'https:';
+    } catch {
+      return false;
+    }
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -56,7 +67,6 @@ const ProjectsSection = () => {
         initial={{ y: -20 }}
         animate={{ y: 0 }}
         transition={{ delay: 0.2 }}
-        // className="text-4xl md:text-5xl font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500"
         className="text-4xl md:text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500"
       >
         {projects.sectionName}
@@ -77,15 +87,26 @@ const ProjectsSection = () => {
           >
             <div className="relative h-full bg-gray-900 rounded-xl p-6">
               <div className="flex flex-col h-full">
-                {/* Imagem do projeto */}
+                {/* Imagem do projeto - CORREÇÃO APLICADA */}
                 <div className="h-48 mb-4 relative overflow-hidden rounded-lg">
-                  <Image
-                    // src={proj.image || "/project-placeholder.jpg"}
-                    src={"/perfil.jpg"}
-                    alt={proj.name}
-                    fill
-                    className="object-cover"
-                  />
+                  {proj.image && isValidImageUrl(proj.image) ? (
+                    <Image
+                      src={proj.image}
+                      alt={proj.name}
+                      fill
+                      className="object-cover"
+                      onError={(e) => {
+                        console.error("Erro ao carregar imagem:", proj.image);
+                        // Fallback para imagem placeholder em caso de erro
+                        e.currentTarget.src = "/project-placeholder.jpg";
+                      }}
+                    />
+                  ) : (
+                    // Fallback quando não há imagem válida
+                    <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center">
+                      <span className="text-gray-400 text-sm">Sem imagem</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Título e descrição */}
@@ -109,7 +130,6 @@ const ProjectsSection = () => {
                     </span>
                   ))}
                 </div>
-
 
                 <div className="flex flex-col sm:flex-row justify-between mt-auto pt-4 border-t border-gray-800 gap-3 sm:gap-0">
                   <motion.a

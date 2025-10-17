@@ -34,6 +34,13 @@ export default function AboutSection() {
     fetchData();
   }, []);
 
+  // Ícones fixos para cada card
+  const fixedIcons = [
+    "💻", // Desenvolvedor/Programação
+    "🎓", // Educação/Graduação  
+    "📁", // Projetos
+  ];
+
   if (loading) return (
     <div className="flex justify-center items-center h-64">
       <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
@@ -90,7 +97,7 @@ export default function AboutSection() {
               transition={{ delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line break-words overflow-wrap-break-word word-break-break-all max-w-full">
                 {aboutData.description}
               </p>
             </motion.div>
@@ -103,10 +110,6 @@ export default function AboutSection() {
               viewport={{ once: true }}
               className="mt-12"
             >
-              <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-800 dark:text-white">
-                Minhas Tecnologias
-              </h2>
-
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                 {aboutData.technologies.map((tech, index) => (
                   <motion.div
@@ -117,20 +120,17 @@ export default function AboutSection() {
                     whileHover={{ y: -5 }}
                     className="group relative overflow-hidden rounded-xl bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 p-6 text-center"
                   >
-                    <div className="h-16 w-16 mx-auto mb-4 relative">
-                      <Image
-                        src={"/perfil.jpg"}
-                        // src={tech.image || "/tech-icon.png"}
-                        alt={tech.title}
-                        fill
-                        className="object-contain"
-                      />
+                    <div className="h-16 w-16 mx-auto mb-4 flex items-center justify-center">
+                      {/* ÍCONES FIXOS - MUDANÇA APLICADA AQUI */}
+                      <span className="text-4xl">
+                        {fixedIcons[index] || "⚡"}
+                      </span>
                     </div>
                     <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
-                      {tech.title}
+                      {tech.title} {/* Título dinâmico mantido */}
                     </h3>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
-                      {tech.description}
+                      {tech.description} {/* Descrição dinâmica mantida */}
                     </p>
                   </motion.div>
                 ))}

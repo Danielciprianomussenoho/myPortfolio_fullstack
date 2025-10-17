@@ -18,9 +18,9 @@ export default function Home() {
 
            {/* Conteúdo principal com as seções em scroll */}
      <main className="pt-20 space-y-16 scroll-smooth">
-        {/* <section>
+        <section>
           <InicioPage />
-        </section> */}
+        </section>
 
         <section id="about">
           <AboutPage />
