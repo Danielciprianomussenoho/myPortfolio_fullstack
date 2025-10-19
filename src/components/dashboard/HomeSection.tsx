@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Image from "next/image";
+
 
 // Interface para tipagem
 interface HomeData {
@@ -48,12 +48,13 @@ export default function HomeSection() {
       const url = new URL(urlString);
       return url.protocol === 'http:' || url.protocol === 'https:';
     } catch (e) {
+      console.error("Invalid URL:", urlString, e);
       return false;
     }
   };
 
   // Função para garantir que os links tenham a estrutura correta
-  const ensureLinksStructure = (links: any): HomeData['links'] => {
+  const ensureLinksStructure = (links: unknown): HomeData['links'] => {
     if (!links) {
       return { github: "", linkedin: "", instagram: "" };
     }
@@ -72,12 +73,16 @@ export default function HomeSection() {
       }
     }
     
-    // Se já é um objeto
-    return {
-      github: links?.github || "",
-      linkedin: links?.linkedin || "",
-      instagram: links?.instagram || "",
-    };
+    
+    if (typeof links === "object") {
+      const obj = links as Record<string, string>; // ALTERAÇÃO: cast seguro
+      return {
+        github: obj.github || "",
+        linkedin: obj.linkedin || "",
+        instagram: obj.instagram || "",
+      };
+    }
+    return { github: "", linkedin: "", instagram: "" };
   };
 
   useEffect(() => {
@@ -99,8 +104,9 @@ export default function HomeSection() {
         if (safeData.profile_picture && isValidUrl(safeData.profile_picture)) {
           setPreviewImage(safeData.profile_picture);
         }
-      } catch (err) {
-        console.error("Erro ao buscar dados da home:", err);
+      } catch (err: unknown) {
+        const error = err as { response?: { data?: { error?: string } } }; // ALTERAÇÃO: cast seguro
+        console.error("Erro ao buscar dados da home:", error.response?.data?.error || err); // ALTERAÇÃO: substituído err por error.response seguro
       } finally {
         setLoading(false);
       }
@@ -201,12 +207,10 @@ export default function HomeSection() {
       setSelectedImage(null);
       setSelectedCV(null);
 
-    } catch (err: any) {
-      console.error("Erro detalhado:", err);
-      setMensagem(
-        err.response?.data?.error || 
-        "Erro ao atualizar os dados da Home."
-      );
+    } catch (err: unknown) {
+      const error = err as { response?: { data?: { error?: string } } }; // ALTERAÇÃO: cast seguro
+      console.error("Erro detalhado:", error.response?.data?.error || err);
+      setMensagem(error.response?.data?.error || "Erro ao atualizar os dados da Home.");
     }
   };
 
