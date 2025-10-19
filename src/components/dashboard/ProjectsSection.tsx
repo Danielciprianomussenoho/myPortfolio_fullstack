@@ -62,6 +62,7 @@ const ProjectsSection = () => {
       const url = new URL(urlString);
       return url.protocol === 'http:' || url.protocol === 'https:';
     } catch (e) {
+      console.error("Invalid URL:", urlString, e);
       return false;
     }
   };

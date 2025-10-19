@@ -9,7 +9,7 @@ interface Technology {
   description: string;
 }
 
-export default function AboutSection() {
+export default function AboutSection() { 
   const [aboutData, setAboutData] = useState({
     sectionName: "",
     picture: "",
@@ -34,7 +34,7 @@ export default function AboutSection() {
     };
     fetchData();
   }, []);
-
+// handler change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setAboutData({ ...aboutData, [e.target.name]: e.target.value || "" });
   };
