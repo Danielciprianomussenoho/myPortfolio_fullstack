@@ -48,7 +48,7 @@ export default function NavbarSection() {
     <nav className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md fixed w-full z-50 shadow-md border-b border-gray-200 dark:border-gray-700">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
-          Meu Portfólios
+          Meu Portfólio
         </Link>
 
         {/* Ícone do menu mobile */}

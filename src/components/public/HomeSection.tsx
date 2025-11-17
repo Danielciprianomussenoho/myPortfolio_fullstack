@@ -118,7 +118,7 @@ export default function HomeSection() {
                 className="flex-1 min-w-[110px] px-3 py-2 text-xs sm:text-sm font-medium rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-200 flex items-center justify-center gap-1 sm:gap-2"
               >
                 <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">...</svg>
-                GitHub
+                GitHubs
               </Link>
 
               <Link
