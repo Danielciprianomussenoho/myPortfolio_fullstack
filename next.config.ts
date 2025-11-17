@@ -10,7 +10,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'myportfolioapi.up.railway.app',
+        hostname: 'myportfolioapi-production-1dd2.up.railway.app',
         pathname: '/uploads/**',
       },
     ],
